@@ -9,7 +9,7 @@ I also write about system design and engineering, sharing lessons from building 
 
 ---
 
-### Technologies
+### Skills and Technologies
 
 I primarily work on systems and backend engineering:
 
