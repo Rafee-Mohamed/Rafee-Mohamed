@@ -16,7 +16,7 @@ I primarily work on systems and backend engineering:
 * Languages: Java, TypeScript, Python, Rust - building backend services and system components  
 * Systems engineering: Concurrency, Distributed systems and storage systems  
 * System design: Microservices, event-driven architectures, coordination and consistency models 
-* Data systems: PostgreSQL, Elasticsearch, ClickHouse, Redis etc.
+* Technologies : PostgreSQL, Elasticsearch, ClickHouse, Redis, Kubernetes, Prometheus, Grafana, AWS - Lamda, S3, DynamoDB, SQS etc.
 
 ---
 
@@ -24,16 +24,16 @@ I primarily work on systems and backend engineering:
 
 I’m interested in exploring foundational systems and infrastructure by building them end-to-end - implementing and understanding the underlying mechanisms from scratch to go beyond abstractions.
 
-#### [Axis (WIP) - Distributed Key-Value Store](https://github.com/Rafee-Mohamed/axis)
+#### [Axis - Distributed Key-Value Store](https://github.com/Rafee-Mohamed/axis)
 
-I’m building this to understand how real distributed coordination systems work - combining consensus, storage, failure modes and system design.
+I’m building this to understand how real distributed systems and coordination work - combining consensus, storage, failure modes and system design.
 
 Axis is a fault-tolerant, strongly consistent distributed key-value store designed for coordination, distributed locking and metadata management - inspired by [etcd-io/etcd](https://github.com/etcd-io/etcd).
 
-* Raft-based replication for strong consistency  
-* Multi-Versioned storage engine (MVCC) enabling non-blocking temporal queries  
-* Linearizable reads  
-* Leasing system with checkpointing  
+* Raft-based replication with leader election, failover and crash-safe recovery
+* Multi-Versioned storage engine (MVCC) with ACID semantics enabling non-blocking temporal queries
+* Linearizable reads
+* Leasing system with checkpointing
 
 
 #### [Jaft - Raft Consensus Protocol](https://github.com/Rafee-Mohamed/jaft)
@@ -42,20 +42,20 @@ I built this to deeply understand how consensus works in real systems - leader e
 
 Jaft is an implementation of the Raft consensus protocol in Java, built as the consensus layer for Axis.
 
-* Pure state machine design  
-* Leader election, log replication and membership changes  
-* Deterministic execution model  
+* Pure state machine design with determisitic execution model 
+* Leader election, log replication and joint consensus for dynamic cluster membership  
+* Snapshot via log compaction, Quorum confirmed and lease based linearizable reads, Leadership transfer
 
 
-#### [Versioned Index](https://github.com/Rafee-Mohamed/versioned-index)
+#### [TimelineDB](https://github.com/Rafee-Mohamed/timeline-db)
 
-Built as the indexing layer for Axis, this explores how atomicity and isolation can be achieved without locking in in-memory indexing under high concurrency.
+I built this to understand and learn storage engines and MVCC works
 
-It is a versioned, ordered key-value index designed for non-blocking single-writer, multi-reader systems.
+An embeddable multi-versioned storage engine enabling time-travel queries built on LMDB.
 
-* Persistent (copy-on-write) B+ tree implementation with structural sharing  
-* Snapshot-isolated, lock-free reads  
-* Atomic multi-operation transactions  
+* Implements a non-blocking single-writer, multi-reader concurrency model and timeline of historical states 
+* Uses [versioned-index](https://github.com/Rafee-Mohamed/versioned-index), an ordered key-value index based on Persistent (copy-on-write) B+tree for key timline indexing enabling efficient lock-free reads and atomic writes
+* Supports snapshot isolated point and range reads, batched writes and incremental background compaction
 
 ---
 Thanks for reading - always up for a conversation about systems, trade-offs, and interesting engineering problems.
