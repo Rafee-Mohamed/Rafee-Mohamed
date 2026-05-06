@@ -47,7 +47,7 @@ Jaft is an implementation of the Raft consensus protocol in Java, built as the c
 * Snapshot via log compaction, Quorum confirmed and lease based linearizable reads, Leadership transfer
 
 
-#### [TimelineDB](https://github.com/Rafee-Mohamed/timeline-db)
+#### [TimelineDB - MVCC Storage engine](https://github.com/Rafee-Mohamed/timeline-db)
 
 I built this to understand and learn storage engines and MVCC works
 
